@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+	<Document>
+		<Style id="z1">
+			<IconStyle>
+				<Icon>
+					<href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		
+		<Style id="lineStyle">
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>4</width>
+			</LineStyle>
+		</Style>
+		
+		<Placemark>
+			<name>Home</name>
+			<styleUrl>#z1</styleUrl>
+			<Point>
+				<coordinates>-118.2870495,34.0278311</coordinates>
+			</Point>
+		</Placemark>
+		
+		<!-- Convex hull here as a new Placemark -->
+        <Placemark>
+			<name>Convex Hull</name>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-118.286152,34.0172937,0 
+							-118.2909683,34.0189327,0 
+							-118.2870495,34.0278311,0 
+							-118.2832474,34.0222503,0 
+							-118.2830691,34.021631,0 
+							-118.2824543,34.0187462,0 
+							-118.286152,34.0172937,0
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		
+
+		<Folder>
+			<name>Fountains</name>
+			<Placemark>
+				<name>Hahn Central Plaza Fountain</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2852631,34.0202775</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Exposition Park Fountain</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.286152,34.0172937</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Generations Fountain</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2832474,34.0222503</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		
+		<Folder>
+			<name>Libraries</name>
+			<Placemark>
+				<name>Music Library</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2836222,34.0202562</coordinates>
+				</Point>
+			</Placemark>
+				<Placemark>
+				<name>Leavey Library</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2830691,34.021631</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Science and Engineering Library</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2888461,34.0195969</coordinates>
+				</Point>
+				</Placemark>
+		</Folder>
+		
+		<Folder>
+			<name>Dept Buildings</name>
+			<Placemark>
+				<name>USC Viterbi School of Engineering</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.288937,34.020862</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>USC School of Architecture</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2875849,34.0192858</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>USC Law School</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.284864,34.0188247</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		
+		<Folder>
+			<name>Eateries</name>
+			<Placemark>
+				<name>Panda Express</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2860841,34.0201754</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Parkside Restaurant</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2909683,34.0189327</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Fertitta Cafe</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2824543,34.0187462</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		
+		<!-- Neighbors here as a new Placemark -->
+		<Placemark>
+			<name>Line to Generations Fountain</name>
+			<styleUrl>#lineStyle</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-118.2870495,34.0278311,0 -118.2832474,34.0222503,0
+				</coordinates>
+			</LineString>
+		</Placemark>
+		
+		<Placemark>
+			<name>Line to Leavey Library</name>
+			<styleUrl>#lineStyle</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-118.2870495,34.0278311,0 -118.2830691,34.021631,0
+				</coordinates>
+			</LineString>
+		</Placemark>
+
+		<Placemark>
+			<name>Line to USC Viterbi School of Engineering</name>
+			<styleUrl>#lineStyle</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-118.2870495,34.0278311,0 -118.288937,34.020862,0
+				</coordinates>
+			</LineString>
+		</Placemark>
+		
+		<Placemark>
+			<name>Line to Hahn Central Plaza Fountain</name>
+			<styleUrl>#lineStyle</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-118.2870495,34.0278311,0 -118.2852631,34.0202775,0
+				</coordinates>
+			</LineString>
+		</Placemark>
+
+	</Document>
+</kml>

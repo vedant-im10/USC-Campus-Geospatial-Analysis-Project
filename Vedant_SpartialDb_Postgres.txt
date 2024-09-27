@@ -1,0 +1,63 @@
+CREATE EXTENSION postgis;
+
+
+CREATE TABLE Vedant_Assign3 (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(15),
+    location GEOGRAPHY(Point, 4326)
+);
+
+
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('Home', ST_GeogFromText('POINT(-118.2870495 34.0278311)'));
+
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('HahnFountain', ST_GeogFromText('POINT(-118.2852631 34.0202775)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('ExpoFountain', ST_GeogFromText('POINT(-118.286152 34.0172937)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('GenFountain', ST_GeogFromText('POINT(-118.2832474 34.0222503)'));
+
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('MusicLib', ST_GeogFromText('POINT(-118.2836222 34.0202562)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('LeaveyLib', ST_GeogFromText('POINT(-118.2830691 34.021631)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('SciEngLib', ST_GeogFromText('POINT(-118.2888461 34.0195969)'));
+
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('ViterbiSchEng', ST_GeogFromText('POINT(-118.288937 34.020862)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('USCSchArchitech', ST_GeogFromText('POINT(-118.2875849 34.0192858)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('USCLawSch', ST_GeogFromText('POINT(-118.284864 34.0188247)'));
+
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('PandaExpress', ST_GeogFromText('POINT(-118.2860841 34.0201754)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('ParksideRest', ST_GeogFromText('POINT(-118.2909683 34.0189327)'));
+INSERT INTO Vedant_Assign3 (name, location)
+VALUES
+('FertittaCafe', ST_GeogFromText('POINT(-118.2824543 34.0187462)'));
+
+
+SELECT ST_AsText(ST_ConvexHull(ST_Collect(location::geometry))) AS convex_hull
+FROM Vedant_Assign3;
+
+
+SELECT name, ST_Distance(location, ST_GeogFromText('POINT(-118.2870495 34.0278311)')) AS distance
+FROM Vedant_Assign3
+ORDER BY location <-> ST_GeogFromText('POINT(-118.2870495 34.0278311)')
+LIMIT 5;

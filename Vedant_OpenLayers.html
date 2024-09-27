@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vedant_OL</title>
+    <script src="https://openlayers.org/api/OpenLayers.js"></script>
+    <style>
+      #map {
+        width: 550px;
+        height: 550px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var myPoints = [
+        { a: 34.0278311, b: -118.2870495 }, // Home
+        { a: 34.0202775, b: -118.2852631 }, // Hahn Central Plaza Fountain
+        { a: 34.0172937, b: -118.286152 }, // Exposition Park Fountain
+        { a: 34.0222503, b: -118.2832474 }, // Generations Fountain
+        { a: 34.0202562, b: -118.2836222 }, // Music Library
+        { a: 34.021631, b: -118.2830691 }, // Leavey Library
+        { a: 34.0195969, b: -118.2888461 }, // Science and Engineering Library
+        { a: 34.020862, b: -118.288937 }, // USC Viterbi School of Engineering
+        { a: 34.0192858, b: -118.2875849 }, // USC School of Architecture
+        { a: 34.0188247, b: -118.284864 }, // USC Law School
+        { a: 34.0201754, b: -118.2860841 }, // Panda Express
+        { a: 34.0189327, b: -118.2909683 }, // Parkside Restaurant
+        { a: 34.0187462, b: -118.2824543 }, // Fertitta Cafe
+      ];
+      localStorage.setItem("myData", JSON.stringify({ k1: myPoints }));
+
+      var dataStored = JSON.parse(localStorage.getItem("myData"));
+      console.log(dataStored);
+
+      function initMap() {
+        map = new OpenLayers.Map("map");
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");
+        map.addLayer(basemap);
+        markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+        map.setCenter(
+          new OpenLayers.LonLat(-118.28538, 34.0205).transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            map.getProjectionObject()
+          ),
+          5
+        );
+      }
+
+      function addMarker(latitude, longitude) {
+        var lonLat = new OpenLayers.LonLat(longitude, latitude).transform(
+          new OpenLayers.Projection("EPSG:4326"),
+          map.getProjectionObject()
+        );
+        var point = new OpenLayers.Marker(lonLat);
+        markers.addMarker(point);
+      }
+
+      initMap();
+
+      var pointsArray = dataStored.k1;
+      for (var i = 0; i < pointsArray.length; i++) {
+        addMarker(pointsArray[i].a, pointsArray[i].b);
+      }
+    </script>
+  </body>
+</html>

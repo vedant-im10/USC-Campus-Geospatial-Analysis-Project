@@ -1,0 +1,4 @@
+ERROR 1: Attempt to write non-point (LINESTRING) geometry to point shapefile.
+ERROR 1: Unable to write feature 1 from layer merged.
+ERROR 1: Terminating translation prematurely after failed
+translation of layer merged (use -skipfailures to skip errors)
